@@ -23,7 +23,7 @@ docker build .
 docker run
 
 API end-point:
-1) Create Shipment -POST
+1) Create Shipment 
   curl --location --request POST 'http://localhost:8080/shipment' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -36,7 +36,7 @@ API end-point:
         "height": "4"
     }
 }'
-2) Create Transport -POST
+2) Create Transport
  curl --location --request POST 'http://localhost:8080/transport' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -48,7 +48,7 @@ API end-point:
         "height": "4"
     }
 }'
-3) Load Assignment -POST
+3) Load Assignment 
  curl --location --request POST 'http://localhost:8080/load-assignment' \
 --header 'Content-Type: application/json' \
 --data-raw '
@@ -66,7 +66,7 @@ API end-point:
  }
 '
 
-4) Retrieve Loaded - Retrive All shipments with assigned vehicle.-GET
+4) Retrieve Loaded 
 curl --location --request GET 'http://localhost:8080/getshipment'
 '
 
