@@ -24,36 +24,51 @@ docker run
 
 API end-point:
 1) Create Shipment -POST
-   http://localhost:8080/shipment
-   Request:
-   {
-   "source":"delhi",
-   "destination":"bangalore",
-   "weight":"20",
-   "dimension":{
-   "length":"2",
-   "weight":"5",
-   "height":"4"
-   }
-   }
+  curl --location --request POST 'http://localhost:8080/shipment' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "source": "delhi",
+    "destination": "bangalore",
+    "weight": "24",
+    "dimension": {
+        "length": "2",
+        "weight": "5",
+        "height": "4"
+    }
+}'
 2) Create Transport -POST
-   http://localhost:8080/transport
-   Request:
-   {
-   "capacity": "20",
-   "currentLoad": "0",
-   "dimension": {
-   "length": "2",
-   "weight": "5",
-   "height": "4"
-   }
-   }
+ curl --location --request POST 'http://localhost:8080/transport' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "capacity": "40.5",
+    "currentLoad": "10",
+    "dimension": {
+        "length": "2",
+        "weight": "5",
+        "height": "4"
+    }
+}'
 3) Load Assignment -POST
-   http://localhost:8080/load-assignment
-   NO Body.
+ curl --location --request POST 'http://localhost:8080/load-assignment' \
+--header 'Content-Type: application/json' \
+--data-raw '
+{
+     "source":"delhi",
+     "destination":"bangalore",
+     "weight":"20",
+     "dimension":{
+         "length":"2",
+         "weight":"5",
+         "height":"4"
+
+ }
+ 
+ }
+'
 
 4) Retrieve Loaded - Retrive All shipments with assigned vehicle.-GET
-   http://localhost:8080/getshipment
+curl --location --request GET 'http://localhost:8080/getshipment'
+'
 
 postman collection can be found here:
 shipment-loading-service\src\main\java\com\microservices\shipment\service\postman
