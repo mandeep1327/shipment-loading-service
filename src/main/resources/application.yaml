@@ -1,9 +1,9 @@
-POSTGRES_DB_URL: jdbc:postgresql://localhost:5432/booking_events
-POSTGRES_USERNAME: booking_events
-POSTGRES_DB_PASSWORD: test
-POSTGRES_R2DBC_URL: r2dbc:pool:postgresql://localhost:5432/booking_events
-POSTGRES_R2DBC_USERNAME: booking_events
-POSTGRES_R2DBC_PASSWORD: test
+POSTGRES_DB_URL: jdbc:postgresql://localhost:5432/shipmentdb
+POSTGRES_USERNAME: shipment
+POSTGRES_DB_PASSWORD: shipment
+POSTGRES_R2DBC_URL: r2dbc:pool:postgresql://localhost:5432/shipmentdb
+POSTGRES_R2DBC_USERNAME: shipment
+POSTGRES_R2DBC_PASSWORD: shipment
 LIQUIBASE_ENABLED: true
 LIQUIBASE_CHANGE_LOG: classpath:db/liquibase-change.yaml
 ENABLE_H2: true
