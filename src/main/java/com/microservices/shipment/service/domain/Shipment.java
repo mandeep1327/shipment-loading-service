@@ -18,11 +18,11 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(value = "Shipment")
-public class Shipment implements Persistable<String> {
+public class Shipment implements Persistable<Integer> {
 
     @Id
-    @Column("shipment_id")
-    private String shipmentId;
+    @Column("id")
+    private Integer shipmentId;
     @Column("dimension")
     private Dimension dimension;
     @Column("source")
@@ -34,24 +34,15 @@ public class Shipment implements Persistable<String> {
     @Column("shipment_date")
     private Instant shipmentDate;
 
-    @Transient
-    private boolean id;
-
     @Override
     @Transient
     public boolean isNew() {
-        return this.id;
+        return shipmentId==null;
     }
 
     @Override
-    public String getId() {
+    public Integer getId() {
         return this.shipmentId;
     }
-
-    public Shipment setAsNew(boolean isNew) {
-        this.id = isNew;
-        return this;
-    }
-
 
 }

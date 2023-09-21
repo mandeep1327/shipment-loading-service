@@ -21,7 +21,7 @@ public class ShipmentService {
 
     public Mono<ShipmentRegistration> submitRegistration(ShipmentRegistration shipmentRegistration) {
         Shipment buildShipmentRequest = buildRequest(shipmentRegistration);
-        return this.shipmentRegistrationsRepository.save(buildShipmentRequest.setAsNew(true))
+        return this.shipmentRegistrationsRepository.save(buildShipmentRequest)
                 .doOnNext(__ -> log.info("Saved Shipment request"))
                 .doOnError(throwable -> log.warn("Error occurred while saving to database {}", throwable.getMessage()))
                 .map(this::toShipmentRegistration);

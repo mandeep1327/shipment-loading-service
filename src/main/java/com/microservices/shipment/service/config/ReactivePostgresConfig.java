@@ -28,6 +28,8 @@ public class ReactivePostgresConfig extends AbstractR2dbcConfiguration {
     @Bean
     @Override
     public R2dbcCustomConversions r2dbcCustomConversions() {
-        return new R2dbcCustomConversions(getStoreConversions(), List.of(new DimensionToJsonConverter(), new JsonToDimensionConverter()));
+        return new R2dbcCustomConversions(getStoreConversions(), List.of(new DimensionToJsonConverter(), new JsonToDimensionConverter(),
+                new TransportToJsonConverter(), new JsonToTransportConverter(),
+                new ShipmentToJsonConverter(), new JsonToShipmentConverter()));
     }
 }

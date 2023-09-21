@@ -1,12 +1,10 @@
 package com.microservices.shipment.service.model;
 
-import com.microservices.shipment.service.domain.Dimension;
+import io.r2dbc.spi.Parameter;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.time.Instant;
 
 @Data
 @NoArgsConstructor
@@ -14,8 +12,8 @@ import java.time.Instant;
 @Builder(toBuilder = true)
 public class ShipmentDetails {
 
-    private String loadId;
-    private String shipmentId;
-    private String transportId;
+    private Integer loadId;
+    private Integer shipmentId;
+    private Integer transportId;
 
 }

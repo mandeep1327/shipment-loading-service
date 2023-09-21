@@ -1,8 +1,8 @@
 CREATE TABLE IF NOT EXISTS shipment (
-shipment_id SERIAL,
+id SERIAL,
 dimension JSONB,
 weight integer,
 source varchar,
 destination varchar,
 shipment_date timestamp,
-PRIMARY KEY(shipment_id));
+PRIMARY KEY(id));
