@@ -17,13 +17,13 @@ public class LoadAssignmentHandler {
 
     public Mono<ServerResponse> distributeShipmentsToVehicles(ServerRequest request) {
         var response = Mono.just(request)
-                .flatMap(req -> loadingService.asignmentShipment());
+                .flatMap(serverRequest -> loadingService.asignmentShipment());
         return ServerResponse.ok().body(response, String.class);
     }
 
     public Mono<ServerResponse> getAssignedShipments(ServerRequest request) {
         var response = Mono.just(request)
-                .flatMapMany(req -> loadingService.getShipments())
+                .flatMapMany(req -> loadingService.getAssignedShipments())
                 .map(this::toShipmentDetails);
         return ServerResponse.ok().body(response, ShipmentDetails.class);
     }

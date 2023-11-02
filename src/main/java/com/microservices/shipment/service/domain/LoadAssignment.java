@@ -1,6 +1,5 @@
 package com.microservices.shipment.service.domain;
 
-import com.microservices.shipment.service.model.TransportRegistration;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,22 +14,22 @@ import org.springframework.data.relational.core.mapping.Table;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(value = "load_assignment")
-public class LoadAssignment implements Persistable<String> {
+public class LoadAssignment implements Persistable<Integer> {
     @Id
-    @Column("load_id")
-    private String loadId;
+    @Column("id")
+    private Integer loadId;
     @Column("shipment")
     private Shipment shipment;
     @Column("transport")
     private Transport transport;
 
     @Override
-    public String getId() {
+    public Integer getId() {
         return loadId;
     }
 
     @Override
     public boolean isNew() {
-        return loadId==null;
+        return loadId == null;
     }
 }

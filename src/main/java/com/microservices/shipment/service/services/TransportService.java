@@ -9,8 +9,6 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.util.List;
-
 
 @Slf4j
 @Service
@@ -21,7 +19,7 @@ public class TransportService {
 
     public Mono<TransportRegistration> submitRegistration(TransportRegistration transportRegistration) {
         Transport transport = buildRequest(transportRegistration);
-        return this.transportRegistrationsRepository.save(transport.setAsNew(true))
+        return this.transportRegistrationsRepository.save(transport)
                 .doOnNext(__ -> log.info("Saved Transport request"))
                 .doOnError(throwable -> log.warn("Error occurred while saving to database {}", throwable.getMessage()))
                 .map(this::toTransportRegistration);

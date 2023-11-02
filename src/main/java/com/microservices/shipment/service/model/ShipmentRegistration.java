@@ -5,11 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.relational.core.mapping.Column;
 
 import java.time.Instant;
-import java.util.Date;
-import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -22,6 +19,6 @@ public class ShipmentRegistration {
     private String destination;
     private double weight;
     private Instant shipmentDate;
-    private String id;
+    private Integer id;
 
 }

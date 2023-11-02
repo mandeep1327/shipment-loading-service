@@ -15,11 +15,11 @@ import org.springframework.data.relational.core.mapping.Table;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(value = "transport")
-public class Transport implements Persistable<String> {
+public class Transport implements Persistable<Integer> {
 
     @Id
-    @Column("transport_id")
-    private String transportId;
+    @Column("id")
+    private Integer transportId;
 
     @Column("current_load")
     private double currentLoad;
@@ -36,16 +36,11 @@ public class Transport implements Persistable<String> {
     @Override
     @Transient
     public boolean isNew() {
-        return this.newTransport;
-    }
-
-    public Transport setAsNew(boolean isNew) {
-        this.newTransport = isNew;
-        return this;
+        return transportId == null;
     }
 
     @Override
-    public String getId() {
+    public Integer getId() {
         return this.transportId;
     }
 }

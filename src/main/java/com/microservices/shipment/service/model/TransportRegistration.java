@@ -14,5 +14,5 @@ public class TransportRegistration {
     private double capacity;
     private Dimension dimension;
     private double currentLoad;
-    private String id;
+    private Integer id;
 }
