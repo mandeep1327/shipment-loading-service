@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shipment-loading-service
+  labels:
+    k8s-app: shipment-loading-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: shipment-loading-service
+  template:
+    metadata:
+      labels:
+       k8s-app: shipment-loading-service
+    spec:
+      containers:
+        - name: shipment-loading-service
+          imagePullPolicy: Always
+          image: docker.io/mandeepdocker123/shipment:latest
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          resources:
+            requests:
+              cpu: "1000m"
+              memory: "1Gi"
+            limits:
+              cpu: "1000m"
+              memory: "1Gi"

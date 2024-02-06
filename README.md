@@ -74,3 +74,13 @@ postman collection can be found here:
 shipment-loading-service\src\main\java\com\microservices\shipment\service\postman
 
 
+#docker command
+docker login
+docker build -t shipment .
+docker images
+docker tag shipment:latest mandeepdocker123/shipment:latest
+docker push mandeepdocker123/shipment:latest
+
+docker run -d -p 8080:8080 shipment
+
+

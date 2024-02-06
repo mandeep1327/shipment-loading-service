@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: shipment-loading-service
+  labels:
+    k8s-app: shipment-loading-service
+spec:
+  ports:
+    - port: 8080
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    k8s-app: shipment-loading-service
+  type: NodePort

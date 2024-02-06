@@ -36,7 +36,6 @@ public class LoadingService {
                                 .filter(tr -> (tr.getCapacity() - tr.getCurrentLoad()) >= shipment.getWeight())
                                 .filter(dm -> getVolume(dm.getDimension()) >= getVolume(shipment.getDimension()))
                                 .findFirst())
-                        .filter(tr -> tr.get().getCurrentLoad() < tr.get().getCapacity()) //prevent overloading
                         .map(transport -> LoadAssignment.builder()
                                 .shipment(shipment)
                                 .transport(transport.get())
